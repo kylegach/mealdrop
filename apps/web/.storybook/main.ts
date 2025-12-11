@@ -16,12 +16,26 @@ const config: StorybookConfig = {
     getAbsolutePath('storybook-addon-test-codegen'),
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-designs'),
+    {
+      name: getAbsolutePath('@storybook/addon-mcp'),
+      options: {
+        toolsets: {
+          dev: true, // Tools for story URL retrieval and UI building instructions (default: true)
+          docs: false, // Tools for component manifest and documentation (default: true, requires experimental feature flag below 👇)
+        },
+        experimentalFormat: 'markdown', // Output format: 'markdown' (default) or 'xml'
+      },
+    },
   ],
   typescript: {
     reactDocgen: 'react-docgen',
   },
   staticDirs: ['../public'],
   framework: getAbsolutePath('@storybook/react-vite'),
+  features: {
+    experimentalComponentsManifest: true,
+    experimentalCodeExamples: true,
+  },
 }
 export default config
 
