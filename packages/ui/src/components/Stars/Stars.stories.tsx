@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Review } from './Review'
+import { Stars } from './Stars'
 
 const meta = {
-  title: 'Components/Review',
-  component: Review,
+  title: 'Components/Stars',
+  component: Stars,
   argTypes: {
     rating: {
       control: {
@@ -21,7 +21,7 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1128-3434&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} satisfies Meta<typeof Review>
+} satisfies Meta<typeof Stars>
 
 export default meta
 type Story = StoryObj<typeof meta>

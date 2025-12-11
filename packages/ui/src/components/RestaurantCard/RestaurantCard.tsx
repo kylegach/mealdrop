@@ -3,7 +3,7 @@ import styled, { css, useTheme } from 'styled-components'
 
 import { Body, Heading } from '../typography'
 import { Badge } from '../Badge'
-import { Review } from '../Review'
+import { Stars } from '../Stars'
 
 type RestaurantCardProps = {
   name: string
@@ -179,7 +179,7 @@ export const RestaurantCard = ({
       </ImageContainer>
       <StyledContent>
         <StyledHeading level={2}>{name}</StyledHeading>
-        <Review rating={rating} />
+        <Stars rating={rating} />
         <Description fontWeight="regular">{specialty}</Description>
         {categories?.map((category) => <StyledBadge key={category} text={category} />)}
       </StyledContent>

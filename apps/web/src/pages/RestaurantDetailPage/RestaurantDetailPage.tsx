@@ -7,7 +7,7 @@ import {
   Heading,
   Body,
   Badge,
-  Review,
+  Stars,
   AnimatedIllustration,
   ErrorBlock,
   Spinner,
@@ -116,7 +116,7 @@ export const RestaurantDetailPage = () => {
         <div className="container">
           <Heading level={2}>{name}</Heading>
           <Body>Specialties: {specialty}</Body>
-          <Review rating={rating} />
+          <Stars rating={rating} />
           <div>{categories?.map((category) => <StyledBadge key={category} text={category} />)}</div>
         </div>
       </DetailSection>

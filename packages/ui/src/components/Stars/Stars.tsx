@@ -17,7 +17,7 @@ const StyledBody = styled(Body)(
 `
 )
 
-type ReviewProps = {
+type StarsProps = {
   rating?: number
 }
 
@@ -39,7 +39,7 @@ const getReview = (rating?: number) => {
   return `★ ${rating.toFixed(1)} ${reviewText}`
 }
 
-export const Review = ({ rating }: ReviewProps) => (
+export const Stars = ({ rating }: StarsProps) => (
   <Wrapper>
     <StyledBody size="S" type="span" className="review-text">
       {getReview(rating)}

@@ -1,5 +1,5 @@
 import { Badge } from '../../Badge'
-import { Review } from '../../Review'
+import { Stars } from '../../Stars'
 import { Body, Heading } from '../../typography'
 
 type RestaurantCardProps = {
@@ -36,7 +36,7 @@ export const RestaurantCard = ({
       </div>
       <div>
         <Heading level={2}>{name} </Heading>
-        <Review rating={rating} />
+        <Stars rating={rating} />
         <Body fontWeight="regular">{specialty}</Body>
         {categories?.map((category) => <Badge key={category} text={category} />)}
       </div>
