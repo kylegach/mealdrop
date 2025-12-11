@@ -11,6 +11,8 @@ import {
   AnimatedIllustration,
   ErrorBlock,
   Spinner,
+  CustomerReviews,
+  ReviewForm,
 } from '@mealdrop/ui'
 import { PageTemplate } from '@mealdrop/ui/templates'
 import { useFetchRestaurant } from '../../api/hooks'
@@ -40,11 +42,49 @@ const MenuSection = styled.div(
   `
 )
 
+const ReviewsSection = styled.div(
+  ({ theme: { color } }) => css`
+    padding-top: 3rem !important;
+    padding-bottom: 5rem !important;
+    background: ${color.restaurantDetailBackground};
+  `
+)
+
+const ReviewsSectionContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1000px;
+  margin: 0 auto;
+`
+
 const StyledBadge = styled(Badge)(
   ({ theme: { spacing } }) => css`
     margin-right: ${spacing.s};
   `
 )
+
+// Mock reviews data - in a real app, this would come from an API
+const mockReviews = [
+  {
+    name: 'Sarah Johnson',
+    rating: 5,
+    text: 'Absolutely amazing food! The delivery was quick and the packaging kept everything fresh and hot. The flavors were incredible and portions were generous. Will definitely order again!',
+    avatarUrl: 'https://i.pravatar.cc/150?img=1',
+  },
+  {
+    name: 'Michael Chen',
+    rating: 4.5,
+    text: "Great experience overall! The menu had lots of variety and the food was delicious. Only minor complaint is I wish they had more vegetarian options, but what they do have is fantastic.",
+    avatarUrl: 'https://i.pravatar.cc/150?img=13',
+  },
+  {
+    name: 'Emma Davis',
+    rating: 5,
+    text: 'Best meal delivery service in town! The app is easy to use, customer service is responsive, and the food always exceeds expectations. The new summer menu items are especially good!',
+    avatarUrl: 'https://i.pravatar.cc/150?img=5',
+  },
+]
 
 export const RestaurantDetailPage = () => {
   const { id = '' } = useParams<'id'>()
@@ -54,6 +94,18 @@ export const RestaurantDetailPage = () => {
 
   const [selectedItem, setSelectedItem] = useState<CartItem>()
   const closeModal = () => setSelectedItem(undefined)
+
+  const [reviews, setReviews] = useState(mockReviews)
+
+  const handleReviewSubmit = (data: { rating: number; text: string }) => {
+    const newReview = {
+      name: 'You', // In a real app, this would be the logged-in user's name
+      rating: data.rating,
+      text: data.text,
+      avatarUrl: 'https://i.pravatar.cc/150?img=68', // Default avatar for new reviews
+    }
+    setReviews([newReview, ...reviews])
+  }
 
   const cartItems = useAppSelector(selectCartItems)
   const dispatch = useAppDispatch()
@@ -148,6 +200,14 @@ export const RestaurantDetailPage = () => {
           )}
         </div>
       </MenuSection>
+      <ReviewsSection>
+        <div className="container">
+          <ReviewsSectionContent>
+            <ReviewForm onSubmit={handleReviewSubmit} />
+            <CustomerReviews reviews={reviews} />
+          </ReviewsSectionContent>
+        </div>
+      </ReviewsSection>
     </PageTemplate>
   )
 }
