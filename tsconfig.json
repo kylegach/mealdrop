@@ -1,23 +1,27 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "target": "ESNext",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+    "skipLibCheck": true,
     "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": ["src", ".storybook/*", "functions"],
-  "exclude": ["public"]
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mealdrop/ui": ["./packages/ui/src/index.ts"],
+      "@mealdrop/ui/styles": ["./packages/ui/src/styles/index.ts"],
+      "@mealdrop/ui/hooks": ["./packages/ui/src/hooks/index.ts"],
+      "@mealdrop/ui/templates": ["./packages/ui/src/templates/index.ts"]
+    }
+  }
 }

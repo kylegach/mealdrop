@@ -8,19 +8,23 @@ import pluginPrettier from 'eslint-plugin-prettier/recommended'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+  {
+    ignores: [
+      '**/node_modules',
+      '**/build',
+      '**/dist',
+      '**/coverage',
+      '**/.nyc_output',
+      '**/public',
+      '**/src/typings.d.ts',
+      '!**/.storybook',
+      '.turbo',
+    ],
+  },
   pluginPrettier,
   ...pluginStorybook.configs['flat/recommended'],
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-    ignores: [
-      'node_modules',
-      'build',
-      'coverage',
-      '.nyc_output',
-      'public',
-      'src/typings.d.ts',
-      '!.storybook',
-    ],
     languageOptions: {
       globals: { ...globals.browser, ...globals.node },
     },
