@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
 import { StorybookConfig } from '@storybook/react-vite'
 
 const config: StorybookConfig = {
@@ -8,17 +10,21 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    '@storybook/addon-vitest',
-    '@storybook/addon-a11y',
+    getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@storybook/addon-vitest'),
     // TODO: this addon has a bad instrumentation of getConfig.asyncWrapper that should be fixed
-    'storybook-addon-test-codegen',
-    '@storybook/addon-designs',
-    '@storybook/addon-docs',
+    getAbsolutePath('storybook-addon-test-codegen'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-designs'),
   ],
   typescript: {
     reactDocgen: 'react-docgen',
   },
   staticDirs: ['../public'],
-  framework: '@storybook/react-vite',
+  framework: getAbsolutePath('@storybook/react-vite'),
 }
 export default config
+
+function getAbsolutePath(value: string): any {
+  return path.dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))
+}

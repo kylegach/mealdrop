@@ -58,7 +58,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-storybook": "10.0.0-beta.13",
+    "eslint-plugin-storybook": "next",
     "eslint-plugin-unicorn": "^57.0.0",
     "globals": "^16.0.0",
     "husky": "^9.1.7",
