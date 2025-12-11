@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { Category } from '../../../../components/Category'
-import { breakpoints } from '../../../../styles/breakpoints'
+import { Category } from '@mealdrop/ui'
+import { breakpoints } from '@mealdrop/ui/styles'
 
 type CategoryItem = {
   id?: string

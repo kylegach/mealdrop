@@ -5,8 +5,7 @@ import { Provider as StoreProvider } from 'react-redux'
 
 import { store } from './app-state'
 import { AppRoutes } from './Routes'
-import { lightTheme, darkTheme } from './styles/theme'
-import { GlobalStyle } from './styles/GlobalStyle'
+import { lightTheme, darkTheme, GlobalStyle } from '@mealdrop/ui/styles'
 
 export default function App() {
   const { value } = useDarkMode(false, { global: globalThis.window })

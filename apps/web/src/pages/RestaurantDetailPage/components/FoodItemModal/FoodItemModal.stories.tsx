@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
 import { fn } from 'storybook/test'
 
-import { Button } from '../../../../components/Button'
+import { Button } from '@mealdrop/ui'
 
 import { FoodItemModal } from './FoodItemModal'
 

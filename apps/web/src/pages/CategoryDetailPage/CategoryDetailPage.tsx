@@ -2,14 +2,17 @@ import { useParams, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { useFetchRestaurantsByCategory } from '../../api/hooks'
-import { PageTemplate } from '../../templates/PageTemplate'
-import { RestaurantCard, RestaurantCardSkeleton } from '../../components/RestaurantCard'
-import { TopBanner } from '../../components/TopBanner'
+import {
+  RestaurantCard,
+  RestaurantCardSkeleton,
+  TopBanner,
+  ErrorBlock,
+  Breadcrumb,
+} from '@mealdrop/ui'
+import { PageTemplate } from '@mealdrop/ui/templates'
 import { categories } from '../../stub/categories'
 import sushi from '../../assets/images/sushi.svg'
 import { Restaurant } from '../../types'
-import { ErrorBlock } from '../../components/ErrorBlock'
-import { Breadcrumb } from '../../components/Breadcrumb'
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(356px, 1fr));

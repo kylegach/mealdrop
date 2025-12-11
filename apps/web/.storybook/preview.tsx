@@ -10,11 +10,11 @@ import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import styled, { css, ThemeProvider } from 'styled-components'
 
+import { breakpoints, GlobalStyle, darkTheme, lightTheme } from '@mealdrop/ui/styles'
+
 import { demoModeLoader } from './demo-mode'
 import { rootReducer } from '../src/app-state'
-import { breakpoints } from '../src/styles/breakpoints'
-import { GlobalStyle } from '../src/styles/GlobalStyle'
-import { darkTheme, lightTheme } from '../src/styles/theme'
+
 import { sb } from 'storybook/test'
 
 sb.mock('../src/helpers/getCurrency.ts', { spy: true })

@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
-import { Button } from '../../../../components/Button'
+import { Button, Heading } from '@mealdrop/ui'
+import { breakpoints } from '@mealdrop/ui/styles'
 import ladies from '../../../../assets/images/ladies.svg'
-import { breakpoints } from '../../../../styles/breakpoints'
-import { Heading } from '../../../../components/typography'
 
 const Container = styled.div(
   ({ theme: { color } }) => css`

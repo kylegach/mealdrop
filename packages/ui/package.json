@@ -1,0 +1,117 @@
+{
+  "name": "@mealdrop/ui",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --fix .",
+    "check": "tsc --noEmit",
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "storybook": "storybook dev -p 4141",
+    "build-storybook": "storybook build --output-dir build/storybook",
+    "build-storybook:test": "storybook build --output-dir build/storybook --test",
+    "test-storybook": "test-storybook",
+    "test-storybook:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --listen 4141 --no-request-logging\" \"wait-on tcp:4141 && yarn test-storybook\"",
+    "test-storybook:json": "test-storybook --index-json",
+    "test-storybook:json:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --listen 4141 --no-request-logging\" \"wait-on tcp:4141 && SKIP_SNAPSHOTS=true yarn test-storybook:json\"",
+    "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes --only-changed",
+    "clean": "rm -rf build dist .turbo node_modules"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles": {
+      "types": "./dist/styles.d.ts",
+      "import": "./dist/styles.mjs",
+      "require": "./dist/styles.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks.d.ts",
+      "import": "./dist/hooks.mjs",
+      "require": "./dist/hooks.js"
+    },
+    "./templates": {
+      "types": "./dist/templates.d.ts",
+      "import": "./dist/templates.mjs",
+      "require": "./dist/templates.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.15"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.6.0",
+    "react-loading-skeleton": "^3.5.0",
+    "react-lottie-player": "^2.1.0",
+    "react-multi-carousel": "^2.8.5",
+    "react-redux": "^9.2.0",
+    "react-transition-group": "^4.4.5",
+    "stylis": "^4.3.6",
+    "use-dark-mode": "^2.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@chromatic-com/storybook": "4.2.0-next.1",
+    "@storybook/addon-a11y": "10.0.0-beta.13",
+    "@storybook/addon-coverage": "^2.0.0",
+    "@storybook/addon-designs": "^10.0.2-next.0",
+    "@storybook/addon-docs": "10.0.0-beta.13",
+    "@storybook/addon-themes": "10.0.0-beta.13",
+    "@storybook/addon-vitest": "10.0.0-beta.13",
+    "@storybook/react-vite": "10.0.0-beta.13",
+    "@storybook/test-runner": "0.23.1--canary.fe81472.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^20.17.19",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/react-redux": "^7.1.34",
+    "@types/react-transition-group": "^4.4.12",
+    "@types/stylis": "^4.2.7",
+    "@types/testing-library__jest-dom": "^6.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/browser": "^3.0.7",
+    "@vitest/coverage-v8": "^3.0.7",
+    "babel-loader": "8.4.1",
+    "babel-plugin-istanbul": "^6.1.1",
+    "babel-plugin-open-source": "^1.3.4",
+    "c8": "^7.14.0",
+    "chromatic": "^11.26.1",
+    "concurrently": "^9.1.2",
+    "happy-dom": "^17.1.8",
+    "istanbul": "^0.4.5",
+    "jest-junit": "^16.0.0",
+    "playwright": "^1.50.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-is": "^19.0.0",
+    "react-test-renderer": "^19.0.0",
+    "storybook": "10.0.0-beta.13",
+    "storybook-addon-test-codegen": "2.0.2--canary.048203f.0",
+    "styled-components": "^6.1.15",
+    "typescript": "^5.7.3",
+    "vite": "^6.2.0",
+    "vite-plugin-dts": "^4.3.0",
+    "vitest": "^3.0.7",
+    "vitest-axe": "^0.1.0",
+    "vitest-canvas-mock": "^0.3.3",
+    "wait-on": "^8.0.2"
+  }
+}

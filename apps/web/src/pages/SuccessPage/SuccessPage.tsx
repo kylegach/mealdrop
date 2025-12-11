@@ -3,12 +3,9 @@ import styled, { css } from 'styled-components'
 import ladies from '../../assets/images/ladies-sushi.svg'
 import { useAppSelector } from '../../app-state'
 import { selectOrderItems } from '../../app-state/order'
-import { PageTemplate } from '../../templates/PageTemplate'
-import { TopBanner } from '../../components/TopBanner'
-import { Heading } from '../../components/typography/Heading'
-import { OrderSummary } from '../../components/ShoppingCart'
-import { breakpoints } from '../../styles/breakpoints'
-import { Body } from '../../components/typography/Body'
+import { TopBanner, Heading, OrderSummary, Body } from '@mealdrop/ui'
+import { PageTemplate } from '@mealdrop/ui/templates'
+import { breakpoints } from '@mealdrop/ui/styles'
 
 const Image = styled.div<{ src: string }>(
   ({ src }) => css`

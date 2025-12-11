@@ -5,7 +5,8 @@ export default mergeConfig(viteConfig, {
   test: {
     name: 'node',
     environment: 'happy-dom',
-    include: ['**/*.test.ts'],
+    include: ['**/*.test.ts', '**/*.test.tsx'],
+    setupFiles: ['.storybook/vitest.setup.ts'],
     coverage: {
       exclude: [
         ...coverageConfigDefaults.exclude,
@@ -13,16 +14,13 @@ export default mergeConfig(viteConfig, {
         '**/*.stories.*',
         '.storybook',
         'src/docs',
-        'src/components/Button/utils.tsx',
-        'build',
-        'public',
-        'functions',
         '**/conditional-logic.ts',
         '**/RestaurantCard/progress',
         '**/RestaurantsSection.container.tsx',
         'src/stub',
-        'ps-setup.ts',
         '**/serviceWorker.ts',
+        'build',
+        'public',
       ],
     },
   },

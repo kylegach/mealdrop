@@ -2,9 +2,8 @@ import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import restaurants from '../../../../assets/images/restaurants.png'
-import { breakpoints } from '../../../../styles/breakpoints'
-import { Button } from '../../../../components/Button'
-import { Heading } from '../../../../components/typography'
+import { Button, Heading } from '@mealdrop/ui'
+import { breakpoints } from '@mealdrop/ui/styles'
 
 const StyledButton = styled(Button)`
   margin-top: 2.5rem;

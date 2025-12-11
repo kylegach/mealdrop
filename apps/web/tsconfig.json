@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "src",
     "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
     "allowJs": false,
     "esModuleInterop": true,

@@ -1,10 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { PageTemplate } from '../../templates/PageTemplate'
-import { TopBanner } from '../../components/TopBanner'
-import { Body } from '../../components/typography/Body'
-import { Heading } from '../../components/typography/Heading'
+import { TopBanner, Body, Heading } from '@mealdrop/ui'
+import { PageTemplate } from '@mealdrop/ui/templates'
 import { categories } from '../../stub/categories'
 
 import { CategoryList } from './components/CategoryList'

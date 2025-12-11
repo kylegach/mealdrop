@@ -3,11 +3,8 @@ import styled, { css } from 'styled-components'
 
 import { CartItem } from '../../../../app-state/cart'
 import { toCurrency } from '../../../../helpers'
-import { breakpoints } from '../../../../styles/breakpoints'
-import { Button } from '../../../../components/Button'
-import { Body } from '../../../../components/typography/Body'
-import { Heading } from '../../../../components/typography/Heading'
-import { Modal } from '../../../../components/Modal'
+import { Button, Body, Heading, Modal } from '@mealdrop/ui'
+import { breakpoints } from '@mealdrop/ui/styles'
 
 const StyledBody = styled(Body)`
   margin: 0;

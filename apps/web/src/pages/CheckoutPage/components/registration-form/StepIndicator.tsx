@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components'
 
-import { breakpoints } from '../../../../styles/breakpoints'
-import { Body } from '../../../../components/typography/Body'
-import { Heading } from '../../../../components/typography/Heading'
+import { Body, Heading } from '@mealdrop/ui'
+import { breakpoints } from '@mealdrop/ui/styles'
 
 export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(
   ({

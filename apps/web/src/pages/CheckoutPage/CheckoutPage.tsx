@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components'
 
 import { useAppSelector } from '../../app-state'
-import { OrderSummary } from '../../components/ShoppingCart'
 import { selectCartItems } from '../../app-state/cart'
-import { breakpoints } from '../../styles/breakpoints'
-import { Heading } from '../../components/typography/Heading'
-import { PageTemplate } from '../../templates/PageTemplate'
+import { OrderSummary, Heading } from '@mealdrop/ui'
+import { PageTemplate } from '@mealdrop/ui/templates'
+import { breakpoints } from '@mealdrop/ui/styles'
 
 import { MultiStepForm } from './components/registration-form/MultiStepForm'
 

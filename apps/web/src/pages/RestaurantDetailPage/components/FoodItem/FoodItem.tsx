@@ -2,8 +2,7 @@ import { memo } from 'react'
 import styled, { css } from 'styled-components'
 
 import { toCurrency } from '../../../../helpers'
-import { Body } from '../../../../components/typography/Body'
-import { Heading } from '../../../../components/typography/Heading'
+import { Body, Heading } from '@mealdrop/ui'
 
 const Container = styled.div<{ $isHighlighted: boolean }>(
   ({ theme: { boxShadow, color, borderRadius } }) => css`

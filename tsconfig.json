@@ -15,6 +15,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mealdrop/ui": ["./packages/ui/src/index.ts"],
+      "@mealdrop/ui/styles": ["./packages/ui/src/styles/index.ts"],
+      "@mealdrop/ui/hooks": ["./packages/ui/src/hooks/index.ts"],
+      "@mealdrop/ui/templates": ["./packages/ui/src/templates/index.ts"]
+    }
   }
 }

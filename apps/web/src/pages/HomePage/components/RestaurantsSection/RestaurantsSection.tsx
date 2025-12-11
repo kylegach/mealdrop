@@ -3,9 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Carousel, { type ArrowProps, type CarouselProps } from 'react-multi-carousel'
 
 import { useFetchRestaurants } from '../../../../api/hooks'
-import { IconButton } from '../../../../components/IconButton'
-import { PageSection } from '../../../../components/PageSection'
-import { RestaurantCard, RestaurantCardSkeleton } from '../../../../components/RestaurantCard'
+import { IconButton, PageSection, RestaurantCard, RestaurantCardSkeleton } from '@mealdrop/ui'
 import { Restaurant } from '../../../../types'
 import { isMobile } from '../../../../helpers'
 

@@ -2,9 +2,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import Carousel from 'react-multi-carousel'
 import styled from 'styled-components'
 
-import { PageSection } from '../../../../components/PageSection'
-import { Category, CategoryProps } from '../../../../components/Category'
-import { IconButton } from '../../../../components/IconButton'
+import { PageSection, Category, CategoryProps, IconButton } from '@mealdrop/ui'
 import { isMobile } from '../../../../helpers'
 
 type CategoriesSectionProps = {
