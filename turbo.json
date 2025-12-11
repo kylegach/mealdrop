@@ -30,12 +30,15 @@
       "dependsOn": ["^build"]
     },
     "test": {
+      "dependsOn": ["^build"],
       "cache": true
     },
     "test:ci": {
+      "dependsOn": ["^build"],
       "outputs": ["coverage/**"]
     },
     "test:coverage": {
+      "dependsOn": ["^build"],
       "outputs": ["coverage/**"]
     },
     "test-storybook": {
@@ -56,6 +59,7 @@
       "cache": true
     },
     "chromatic": {
+      "dependsOn": ["^build"],
       "cache": false
     },
     "clean": {
