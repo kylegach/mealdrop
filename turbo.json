@@ -1,0 +1,65 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["build/**", ".next/**", "dist/**"]
+    },
+    "build-storybook": {
+      "dependsOn": ["^build"],
+      "outputs": ["build/storybook/**"]
+    },
+    "build-storybook:test": {
+      "dependsOn": ["^build"],
+      "outputs": ["build/storybook/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
+    "storybook": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "cache": true
+    },
+    "test:ci": {
+      "outputs": ["coverage/**"]
+    },
+    "test:coverage": {
+      "outputs": ["coverage/**"]
+    },
+    "test-storybook": {
+      "dependsOn": ["build-storybook"]
+    },
+    "test-storybook:ci": {
+      "dependsOn": ["build-storybook:test"],
+      "cache": false
+    },
+    "test-storybook:json": {
+      "dependsOn": ["build-storybook"]
+    },
+    "test-storybook:json:ci": {
+      "dependsOn": ["build-storybook:test"],
+      "cache": false
+    },
+    "check": {
+      "cache": true
+    },
+    "chromatic": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}
