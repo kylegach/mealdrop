@@ -21,14 +21,7 @@ sb.mock('../src/helpers/getCurrency.ts', { spy: true })
 
 initialize({
   quiet: true,
-  onUnhandledRequest: ({ url, method }) => {
-    console.error(`Unhandled ${method} request to ${url}.
-
-      This exception has been only logged in the console, however, it's strongly recommended to resolve this error as you don't want unmocked data in Storybook stories.
-
-      If you wish to mock an error response, please refer to this guide: https://mswjs.io/docs/recipes/mocking-error-responses
-    `)
-  },
+  onUnhandledRequest: 'bypass',
 })
 
 const ThemeBlock = styled.div<{ $left?: boolean; $fullScreen?: boolean }>(

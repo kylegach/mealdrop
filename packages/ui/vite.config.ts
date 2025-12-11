@@ -29,7 +29,13 @@ export default defineConfig({
       fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'mjs' : 'js'}`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime', 'styled-components'],
+      external: [
+        'react',
+        'react-dom',
+        'react-router-dom',
+        'react/jsx-runtime',
+        'styled-components',
+      ],
       output: {
         globals: {
           react: 'React',
