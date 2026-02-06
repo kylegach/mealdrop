@@ -10,3 +10,5 @@ Leverage the following Storybook MCP tools for guidance and best practices when 
 4. If a property isn't documented, do not assume properties based on naming conventions or common patterns from other libraries. Check back with the user in these cases.
 
 Remember: A story name might not reflect the property name correctly, so always verify properties through documentation or example stories before using them.
+
+Check your work by running `get-story-tests`.
