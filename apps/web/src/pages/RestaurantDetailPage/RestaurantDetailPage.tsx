@@ -17,7 +17,6 @@ import { useFetchRestaurant } from '../../api/hooks'
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import { CartItem, clearItemAction, saveItemAction, selectCartItems } from '../../app-state/cart'
 
-import { CustomerReviews } from './components/CustomerReviews'
 import { FoodItemModal } from './components/FoodItemModal'
 import { FoodSection } from './components/FoodSection'
 
@@ -149,7 +148,6 @@ export const RestaurantDetailPage = () => {
           )}
         </div>
       </MenuSection>
-      <CustomerReviews />
     </PageTemplate>
   )
 }
