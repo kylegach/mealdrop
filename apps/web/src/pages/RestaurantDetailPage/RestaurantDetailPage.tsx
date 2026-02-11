@@ -19,6 +19,7 @@ import { CartItem, clearItemAction, saveItemAction, selectCartItems } from '../.
 
 import { FoodItemModal } from './components/FoodItemModal'
 import { FoodSection } from './components/FoodSection'
+import { CustomerReviews } from './components/CustomerReviews'
 
 const DetailSection = styled.div(
   ({ theme: { color, spacing } }) => css`
@@ -148,6 +149,7 @@ export const RestaurantDetailPage = () => {
           )}
         </div>
       </MenuSection>
+      <CustomerReviews />
     </PageTemplate>
   )
 }
