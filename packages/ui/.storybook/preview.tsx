@@ -241,7 +241,7 @@ const preview: Preview = {
     },
   },
   decorators: [withRouter, withTheme, withStore],
-  loaders: [demoModeLoader],
+  // loaders: [demoModeLoader],
 }
 
 declare module 'storybook/internal/csf' {

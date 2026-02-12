@@ -22,7 +22,7 @@ const config: StorybookConfig = {
         toolsets: {
           dev: true, // Tools for story URL retrieval and UI building instructions (default: true)
           docs: true, // Tools for component manifest and documentation (default: true, requires experimental feature flag below 👇)
-          test: true, // Tools for test code generation (default: false)
+          test: true, // Tools for running tests (default: true)
         },
         experimentalFormat: 'markdown', // Output format: 'markdown' (default) or 'xml'
       },
