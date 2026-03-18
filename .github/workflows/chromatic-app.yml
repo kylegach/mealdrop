@@ -20,8 +20,8 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_APP }}
-          buildCommand: yarn turbo chromatic --filter=@mealdrop/web -- --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN_APP }} --outputDir=./apps/web/storybook-static
-          outputDir: ./apps/web/storybook-static
+          buildCommand: yarn turbo chromatic --filter=@mealdrop/web -- --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN_APP }} --outputDir=./apps/web/build/storybook
+          outputDir: ./apps/web/build/storybook
   chromatic-ui:
     name: Run Chromatic for UI library
     runs-on: ubuntu-latest
@@ -39,5 +39,5 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_UI }}
-          buildCommand: yarn turbo chromatic --filter=@mealdrop/ui -- --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN_UI }} --outputDir=./packages/ui/storybook-static
-          outputDir: ./packages/ui/storybook-static
+          buildCommand: yarn turbo chromatic --filter=@mealdrop/ui -- --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN_UI }} --outputDir=./packages/ui/build/storybook
+          outputDir: ./packages/ui/build/storybook
