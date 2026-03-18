@@ -1,5 +1,19 @@
 <script>
   var global = global || window
+
+  // Suppress MSW browser worker deserialization errors.
+  // These occur when the service worker sends response messages for non-MSW requests
+  // (e.g. static assets) that lack the expected serialized request data.
+  window.addEventListener('unhandledrejection', function(event) {
+    if (
+      event.reason instanceof TypeError &&
+      event.reason.message &&
+      event.reason.message.indexOf("Cannot read properties of undefined (reading 'url')") !== -1
+    ) {
+      event.stopImmediatePropagation()
+      event.preventDefault()
+    }
+  })
 </script>
 <style>
   #root {
