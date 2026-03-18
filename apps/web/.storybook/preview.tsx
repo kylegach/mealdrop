@@ -24,6 +24,18 @@ initialize({
   onUnhandledRequest: 'bypass',
 })
 
+// Suppress MSW browser worker deserialization errors.
+// These occur when the service worker sends response messages for non-MSW requests
+// (e.g. static assets) that lack the expected serialized request data.
+window.addEventListener('unhandledrejection', (event) => {
+  if (
+    event.reason instanceof TypeError &&
+    event.reason.message.includes("Cannot read properties of undefined (reading 'url')")
+  ) {
+    event.preventDefault()
+  }
+})
+
 const ThemeBlock = styled.div<{ $left?: boolean; $fullScreen?: boolean }>(
   ({ $left, $fullScreen, theme: { color } }) => css`
     position: absolute;
