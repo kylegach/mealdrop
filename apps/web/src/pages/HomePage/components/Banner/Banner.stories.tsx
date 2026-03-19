@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { expect } from 'storybook/test'
 
 import { Banner } from './Banner'
 
@@ -22,5 +23,24 @@ export const Desktop: Story = {}
 export const Mobile: Story = {
   globals: {
     viewport: { value: 'iphonex', isRotated: false },
+  },
+}
+
+export const SearchSubmit: Story = {
+  play: async ({ canvas, userEvent }) => {
+    const input = canvas.getByLabelText('Search for restaurant or food')
+    await userEvent.type(input, 'burger')
+    await expect(input).toHaveValue('burger')
+    await userEvent.click(canvas.getByRole('button', { name: 'Search' }))
+  },
+}
+
+export const EmptySearchSubmit: Story = {
+  play: async ({ canvas, userEvent }) => {
+    const input = canvas.getByLabelText('Search for restaurant or food')
+    await expect(input).toHaveValue('')
+    await userEvent.click(canvas.getByRole('button', { name: 'Search' }))
+    // Form should still be visible — no navigation occurred
+    await expect(canvas.getByRole('button', { name: 'Search' })).toBeVisible()
   },
 }

@@ -50,11 +50,27 @@ type Story = StoryObj<{ demoMode: boolean }>
 
 export const Home = {}
 
+export const ToSearchResultsPage = {
+  play: async ({ canvasElement, step, userEvent }) => {
+    const canvas = within(canvasElement)
+    await step('Search for burger from Banner', async () => {
+      const input = canvas.getByLabelText('Search for restaurant or food')
+      await userEvent.type(input, 'burger')
+      await userEvent.click(canvas.getByRole('button', { name: 'Search' }))
+    })
+    await step('Verify search results page', async () => {
+      await expect(await canvas.findByText('Restaurants')).toBeVisible()
+      const cards = await canvas.findAllByTestId('restaurant-card')
+      await expect(cards.length).toBeGreaterThan(0)
+    })
+  },
+} satisfies Story
+
 export const ToCategoryListPage = {
   play: async ({ canvasElement, step, userEvent }) => {
     const canvas = within(canvasElement)
-    await step('Visit Restaurants page', async () => {
-      await userEvent.click(canvas.getByText('View all restaurants'))
+    await step('Visit Categories page', async () => {
+      await userEvent.click(await canvas.findByText('View all categories'))
     })
   },
 } satisfies Story

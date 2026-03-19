@@ -7,6 +7,7 @@ import { RestaurantDetailPage } from './pages/RestaurantDetailPage'
 import { HomePage } from './pages/HomePage'
 import { CheckoutPage } from './pages/CheckoutPage'
 import { SuccessPage } from './pages/SuccessPage'
+import { SearchResultsPage } from './pages/SearchResultsPage'
 
 export const AppRoutes: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   const location = useLocation()
@@ -24,6 +25,7 @@ export const AppRoutes: React.FC<React.PropsWithChildren<unknown>> = ({ children
         <Route path="/restaurants/:id" element={<RestaurantDetailPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/success" element={<SuccessPage />} />
+        <Route path="/search" element={<SearchResultsPage />} />
         <Route path="/" element={<HomePage />} />
         {children}
       </Routes>

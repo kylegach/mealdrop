@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
 import { Button, Heading } from '@mealdrop/ui'
@@ -55,16 +56,67 @@ const StyledHeading = styled(Heading)(
 `
 )
 
-export const Banner = () => (
-  <Container>
-    <ContentContainer>
-      <StyledHeading level={2}>
-        <strong>Hungry?</strong> find your next meal
-      </StyledHeading>
-      <Link to="/categories">
-        <Button>View all restaurants</Button>
-      </Link>
-    </ContentContainer>
-    <Image src={ladies} />
-  </Container>
+const SearchForm = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+
+  @media ${breakpoints.M} {
+    width: 66%;
+  }
+`
+
+const SearchInput = styled.input(
+  ({ theme: { color, borderRadius } }) => css`
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-family: 'Hind';
+    font-size: 1rem;
+    border: 0;
+    border-radius: ${borderRadius.xs};
+    background-color: ${color.white};
+    color: ${color.primaryText};
+    outline: none;
+
+    &::placeholder {
+      color: ${color.inputHint};
+    }
+  `
 )
+
+export const Banner = () => {
+  const [query, setQuery] = useState('')
+  const navigate = useNavigate()
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const trimmed = query.trim()
+    if (trimmed) {
+      navigate(`/search?q=${encodeURIComponent(trimmed)}`)
+    }
+  }
+
+  return (
+    <Container>
+      <ContentContainer>
+        <StyledHeading level={2}>
+          <strong>Hungry?</strong> find your next meal
+        </StyledHeading>
+        <SearchForm onSubmit={handleSubmit}>
+          <SearchInput
+            type="text"
+            placeholder="Search for restaurant or food…"
+            aria-label="Search for restaurant or food"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <Button type="submit">Search</Button>
+        </SearchForm>
+      </ContentContainer>
+      <Image src={ladies} />
+    </Container>
+  )
+}
