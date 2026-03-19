@@ -26,6 +26,12 @@ const config: StorybookConfig = {
   features: {
     experimentalCodeExamples: true,
   },
+  refs: {
+    'mealdrop-ui': {
+      title: 'Design System',
+      url: 'https://main--69b888cdf21336c63d746a82.chromatic.com',
+    },
+  },
 }
 export default config
 

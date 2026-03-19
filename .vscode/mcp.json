@@ -1,6 +1,6 @@
 {
 	"servers": {
-		"mealdrop-ui": {
+		"mealdrop-sb-mcp": {
 			"url": "http://localhost:6006/mcp",
 			"type": "http"
 		}
